@@ -2,13 +2,15 @@ import schedule
 import time
 import os
 
+MINUTES = 20
+
 def job():
     os.system('python speed-test.py')
 
-schedule.every(20).minutes.do(job)
+schedule.every(MINUTES).minutes.do(job)
 
 job()
 
 while True:
     schedule.run_pending()
-    time.sleep(20*60)
+    time.sleep(MINUTES*60)
